@@ -1,0 +1,10 @@
+# RAG Fundamentals
+Retrieval-Augmented Generation combines information retrieval with language model generation. A retriever selects relevant passages from an external knowledge base, and a generator uses those passages to answer a question. RAG can ground answers in private or frequently updated information.
+Dense retrieval converts text into embedding vectors. Similarity search compares a query vector with document vectors. It can find semantically related passages even when exact keywords differ.
+BM25 is a lexical retrieval algorithm based on term frequency, inverse document frequency, and document length normalization. It is useful for exact terms, identifiers, rare keywords and product names.
+Hybrid retrieval combines lexical and semantic retrieval. Reciprocal Rank Fusion merges ranked lists by adding reciprocal-rank contributions. RRF does not require scores from different retrievers to share a scale.
+Chunking divides long documents into smaller passages. Chunk size affects context completeness and retrieval precision. Overlap preserves information near chunk boundaries, but excessive overlap increases index size and duplicates.
+Reranking applies a more expensive relevance model to an initial candidate set. A common architecture retrieves many candidates quickly and reranks them before generation.
+RAG evaluation measures multiple dimensions. Hit Rate checks whether a relevant item appears in top K. Recall at K measures the fraction of labelled relevant items retrieved. Mean Reciprocal Rank rewards relevant items near the top. Faithfulness asks whether answer claims are supported by context.
+Latency and cost are operational metrics. Benchmarking should use the same dataset and configuration across retrieval strategies, record per-query traces, and report aggregate metrics with failure examples.
+An evaluation dataset should contain representative questions, reference answers and relevance labels. Human review remains important because automatic metrics cannot fully judge factual correctness or usefulness.
